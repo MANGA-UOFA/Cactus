@@ -1,0 +1,158 @@
+<svg width="720" viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      text { font-family: system-ui, -apple-system, sans-serif; }
+      .math    { font-family: "Times New Roman", "Latin Modern Math", serif; font-style: italic; }
+      .ctx     { font-size: 13px; fill: #4b5563; }
+      .blank   { fill: #6366f1; font-weight: 600; letter-spacing: 1px; }
+      .ptitle  { font-size: 13.5px; font-weight: 600; fill: #1f2937; }
+      .tok     { font-size: 10.5px; fill: #6b7280; font-family: ui-monospace, monospace; }
+      .tok-s   { font-size: 10.5px; fill: #1f2937; font-family: ui-monospace, monospace; font-weight: 700; }
+      .prob    { font-size: 9px; fill: #9ca3af; }
+      .acc     { font-size: 12px; fill: #6b7280; }
+      .acc-v   { font-weight: 700; font-size: 13.5px; }
+      .lo      { fill: #6b7280; }
+      .hi      { fill: #059669; }
+      .leg     { font-size: 10px; fill: #6b7280; }
+      .kl      { font-size: 10.5px; fill: #9ca3af; }
+
+      .q  { fill: #dbeafe; stroke: #3b82f6; stroke-width: 1; }
+      .p  { fill: #fef3c7; stroke: #d97706; stroke-width: 1; }
+      .h  { fill: #d1fae5; stroke: #059669; stroke-width: 1; }
+      .qg { fill: none; stroke: #93bbfd; stroke-width: 1; stroke-dasharray: 3 2; opacity: 0.7; }
+
+      .base { stroke: #d1d5db; stroke-width: 0.75; }
+      .div  { stroke: #e5e7eb; stroke-width: 1; stroke-dasharray: 5 3; }
+
+      @media (prefers-color-scheme: dark) {
+        .ctx   { fill: #d1d5db; }
+        .blank { fill: #a5b4fc; }
+        .ptitle { fill: #f3f4f6; }
+        .tok   { fill: #9ca3af; }
+        .tok-s { fill: #f3f4f6; }
+        .prob  { fill: #6b7280; }
+        .acc   { fill: #9ca3af; }
+        .lo    { fill: #9ca3af; }
+        .hi    { fill: #34d399; }
+        .leg   { fill: #9ca3af; }
+        .kl    { fill: #6b7280; }
+
+        .q  { fill: #1e3a5f; stroke: #60a5fa; }
+        .p  { fill: #451a03; stroke: #fbbf24; }
+        .h  { fill: #064e3b; stroke: #34d399; }
+        .qg { stroke: #60a5fa; opacity: 0.5; }
+
+        .base { stroke: #4b5563; }
+        .div  { stroke: #374151; }
+      }
+    </style>
+  </defs>
+
+  <!-- Context sentence -->
+  <text class="ctx" x="360" y="22" text-anchor="middle">
+    Auto-regressive models <tspan class="blank">____</tspan>
+  </text>
+
+  <!-- Legend (left group, aligned with SpS panel center=175) -->
+  <g transform="translate(105,34)">
+    <rect class="q" x="0" y="0" width="10" height="10" rx="2"/>
+    <text class="leg" x="14" y="9">Verifier <tspan class="math">q</tspan></text>
+    <rect class="p" x="95" y="0" width="10" height="10" rx="2"/>
+    <text class="leg" x="109" y="9">Draft <tspan class="math">p</tspan></text>
+  </g>
+
+  <!-- Legend (right group, aligned with Cactus panel center=545) -->
+  <g transform="translate(475,34)">
+    <rect class="h" x="0" y="0" width="10" height="10" rx="2"/>
+    <text class="leg" x="14" y="9">Cactus <tspan class="math">h</tspan></text>
+    <rect class="qg" x="90" y="0" width="10" height="10" rx="2"/>
+    <text class="leg" x="104" y="9">Original <tspan class="math">q</tspan></text>
+  </g>
+
+  <!-- Panel titles -->
+  <text class="ptitle" x="175" y="72" text-anchor="middle">Speculative Sampling</text>
+  <text class="ptitle" x="545" y="72" text-anchor="middle">Cactus</text>
+
+  <!-- Divider -->
+  <line class="div" x1="360" y1="58" x2="360" y2="385"/>
+
+  <!-- ====== LEFT PANEL (SpS) ====== -->
+  <line class="base" x1="65" y1="200" x2="285" y2="200"/>
+
+  <!-- verifier q bars (up from baseline) -->
+  <!-- q = [0.30, 0.35, 0.35], scale = 130px per 1.0 -->
+  <rect class="q" x="93"  y="161"   width="44" height="39"   rx="2"/>
+  <rect class="q" x="153" y="154.5" width="44" height="45.5" rx="2"/>
+  <rect class="q" x="213" y="154.5" width="44" height="45.5" rx="2"/>
+
+  <text class="prob" x="115" y="156"   text-anchor="middle">.30</text>
+  <text class="prob" x="175" y="149.5" text-anchor="middle">.35</text>
+  <text class="prob" x="235" y="149.5" text-anchor="middle">.35</text>
+
+  <!-- draft p bars (down from baseline) -->
+  <!-- p = [0.05, 0.80, 0.15] -->
+  <rect class="p" x="93"  y="200" width="44" height="6.5"  rx="2"/>
+  <rect class="p" x="153" y="200" width="44" height="104"  rx="2"/>
+  <rect class="p" x="213" y="200" width="44" height="19.5" rx="2"/>
+
+  <text class="prob" x="115" y="217" text-anchor="middle">.05</text>
+  <text class="prob" x="175" y="315" text-anchor="middle">.80</text>
+  <text class="prob" x="235" y="230" text-anchor="middle">.15</text>
+
+  <!-- Token labels (generate is bold = sampled token) -->
+  <text class="tok"   x="115" y="332" text-anchor="middle">decode</text>
+  <text class="tok-s" x="175" y="332" text-anchor="middle">generate</text>
+  <text class="tok"   x="235" y="332" text-anchor="middle">output</text>
+
+  <!-- Acceptance rate -->
+  <text class="acc" x="175" y="358" text-anchor="middle">
+    Acceptance rate: <tspan class="acc-v lo">44%</tspan>
+  </text>
+
+  <!-- KL divergence -->
+  <text class="kl" x="175" y="376" text-anchor="middle">
+    <tspan class="math">D</tspan><tspan class="math" font-size="7" dy="2">KL</tspan><tspan dy="-2">(</tspan><tspan class="math">q</tspan><tspan> &#x2016; </tspan><tspan class="math">q</tspan><tspan>) = 0</tspan>
+  </text>
+
+  <!-- ====== RIGHT PANEL (Cactus) ====== -->
+  <line class="base" x1="435" y1="200" x2="655" y2="200"/>
+
+  <!-- cactus h bars (up from baseline) -->
+  <!-- h = [0.16, 0.66, 0.18], KL(h||q) = 0.20 nats -->
+  <rect class="h" x="463" y="179.2" width="44" height="20.8" rx="2"/>
+  <rect class="h" x="523" y="114.2" width="44" height="85.8" rx="2"/>
+  <rect class="h" x="583" y="176.6" width="44" height="23.4" rx="2"/>
+
+  <!-- Ghost of original q (dashed outlines, drawn on top) -->
+  <rect class="qg" x="463" y="161"   width="44" height="39"   rx="2"/>
+  <rect class="qg" x="523" y="154.5" width="44" height="45.5" rx="2"/>
+  <rect class="qg" x="583" y="154.5" width="44" height="45.5" rx="2"/>
+
+  <text class="prob" x="485" y="190"  text-anchor="middle">.16</text>
+  <text class="prob" x="545" y="109"  text-anchor="middle">.66</text>
+  <text class="prob" x="605" y="188"  text-anchor="middle">.18</text>
+
+  <!-- draft p bars (down, same as left) -->
+  <rect class="p" x="463" y="200" width="44" height="6.5"  rx="2"/>
+  <rect class="p" x="523" y="200" width="44" height="104"  rx="2"/>
+  <rect class="p" x="583" y="200" width="44" height="19.5" rx="2"/>
+
+  <text class="prob" x="485" y="217" text-anchor="middle">.05</text>
+  <text class="prob" x="545" y="315" text-anchor="middle">.80</text>
+  <text class="prob" x="605" y="230" text-anchor="middle">.15</text>
+
+  <!-- Token labels (generate is bold = sampled token) -->
+  <text class="tok"   x="485" y="332" text-anchor="middle">decode</text>
+  <text class="tok-s" x="545" y="332" text-anchor="middle">generate</text>
+  <text class="tok"   x="605" y="332" text-anchor="middle">output</text>
+
+  <!-- Acceptance rate -->
+  <text class="acc" x="545" y="358" text-anchor="middle">
+    Acceptance rate: <tspan class="acc-v hi">82%</tspan>
+  </text>
+
+  <!-- KL divergence -->
+  <text class="kl" x="545" y="376" text-anchor="middle">
+    <tspan class="math">D</tspan><tspan class="math" font-size="7" dy="2">KL</tspan><tspan dy="-2">(</tspan><tspan class="math">h</tspan><tspan> &#x2016; </tspan><tspan class="math">q</tspan><tspan>) = 0.20 nats</tspan>
+  </text>
+</svg>

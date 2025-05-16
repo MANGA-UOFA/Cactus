@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cactus"
+version = "0.1.0"
+requires-python = ">=3.10,<3.13"
+license = "MIT"
+dependencies = [
+    "accelerate==1.3.0",
+    "datasets==3.3.0",
+    "evaluate==0.4.3",
+    "fuzzywuzzy",
+    "immutabledict",
+    "jieba",
+    "langdetect==1.0.9",
+    "lm_eval @ git+https://github.com/EleutherAI/lm-evaluation-harness.git@e4a7b69fe0fc6cb430e12cf15c4109bf28185124",
+    "nltk==3.9.1",
+    "rouge",
+    "rouge-score",
+    "sacrebleu==2.5.1",
+    "sentencepiece==0.2.0",
+    "torch==2.5.1",
+    "transformers<5",
+    "vllm==0.7.3",
+    "wandb==0.19.11",
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit",
+    "ruff",
+]
+
+[tool.setuptools.packages.find]
+include = ["cactus*"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]

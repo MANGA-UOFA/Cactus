@@ -16,14 +16,14 @@ dependencies = [
     "jieba",
     "langdetect==1.0.9",
     "lm_eval @ git+https://github.com/EleutherAI/lm-evaluation-harness.git@e4a7b69fe0fc6cb430e12cf15c4109bf28185124",
-    "nltk==3.9.1",
+    "nltk==3.10.0",
     "rouge",
     "rouge-score",
     "sacrebleu==2.5.1",
-    "sentencepiece==0.2.0",
-    "torch==2.5.1",
+    "sentencepiece==0.2.1",
+    "torch==2.13.0",
     "transformers<5",
-    "vllm==0.7.3",
+    "vllm==0.24.0",
     "wandb==0.19.11",
 ]
 
